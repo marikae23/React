@@ -1,15 +1,13 @@
-import './style.css'
+import React from 'react';
+import './style.css';
 
-export default function Header () {
-    return (
-        <>
-        <header>
-        <h1>Logo</h1>
-            <div id='header-links'>
-                <a href=''>Contato</a><br></br>
-                <a href=''>Projetos</a>
-            </div>
-        </header>
-        </>
-    )
-}
+const Header = () => {
+  return (
+    <header className="header">
+      <h1>Maria Eduarda de Moura Eguchi</h1>
+      <a href="#">Contato</a>
+    </header>
+  );
+};
+
+export default Header;

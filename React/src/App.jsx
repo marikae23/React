@@ -1,13 +1,15 @@
-import Header from "./components/Header"
+import React from 'react';
+import './App.css';
+import Header from './components/Header';
+import Login from './components/Login';
 
 function App() {
-  // JS
   return (
-  <>
-    <Header/>
-    <h1>Yuppie</h1>
-  </>
-  )
+    <div className="App">
+      <Header />
+      <Login />
+    </div>
+  );
 }
 
-export default App
+export default App;
