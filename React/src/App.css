@@ -15,13 +15,12 @@
     align-items: center;
   }
   
-
 .App {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 85vh;
+  min-height: 100vh;
   text-align: center;
   background-color: #f0f2f5;
 }

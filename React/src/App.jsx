@@ -1,15 +1,13 @@
 import React from 'react';
+import Signup from './components/Signup';
 import './App.css';
-import Header from './components/Header';
-import Login from './components/Login';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Header />
-      <Login />
+      <Signup />
     </div>
   );
-}
+};
 
 export default App;
