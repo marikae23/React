@@ -1,13 +1,13 @@
-import React from 'react';
-import Home from './pages/Home';
-import './styles/App.css';
+import React
+import SnakeGame from './components/SnakeGame';
+import './styles/SnakeGame.css';
 
-const App = () => {
+function App() {
   return (
-    <div className="App">
-      <Home />
+    <div className='App'>
+      <SnakeGame />
     </div>
   );
-};
+}
 
 export default App;
