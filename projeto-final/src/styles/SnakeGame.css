@@ -4,35 +4,56 @@
   height: 400px;
   background-color: #000;
   margin: 20px auto;
-  border: 2px solid #333;
+  background-image: radial-gradient(circle, #333 1px, transparent 1px);
+  background-size: 20px 20px;
+  overflow: hidden;
 }
 
-.start-screen {
+.start-screen,
+.game-over-screen {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1;
 }
 
-.start-screen button {
+.start-screen button,
+.game-over-screen button {
   padding: 10px 20px;
   font-size: 18px;
-  background-color: #4caf50;
+  background-color: #ef476f;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-top: 10px;
 }
 
-.start-screen button:hover {
-  background-color: #45a049;
+.start-screen button:hover,
+.game-over-screen button:hover {
+  background-color: #ff006e;
+}
+
+.game-over-screen p {
+  color: #ffffff;
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+.counter {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #ffffff;
+  font-size: 18px;
 }
 
 .snake-segment,
@@ -40,31 +61,27 @@
   position: absolute;
   width: 20px;
   height: 20px;
-  border-radius: 3px;
 }
 
 .snake-segment {
-  background-color: #4caf50;
+  background-color: #76b041;
+}
+
+.snake-segment.head {
+  box-shadow: 0 0 5px 2px #c3dd7a;
 }
 
 .snake-food {
-  background-color: #ff5722;
-  border-radius: 50%; 
-}
-
-.death-counter {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 18px;
-  color: #fff;
-  font-weight: bold;
+  background-color: #c1121f;
+  box-shadow: 0 0 10px 2px rgb(220, 98, 98);
 }
 
 @media (max-width: 500px) {
   .snake-game {
     width: 300px;
     height: 300px;
+    background-size: 15px 15px;
+    background-image: radial-gradient(circle, #333 1px, transparent 1px);
   }
 
   .snake-segment,
@@ -73,9 +90,18 @@
     height: 15px;
   }
 
-  .start-screen button {
+  .start-screen button,
+  .game-over-screen button {
     font-size: 16px;
     padding: 8px 16px;
+  }
+
+  .game-over-screen p {
+    font-size: 20px;
+  }
+
+  .counter {
+    font-size: 16px;
   }
 }
 
@@ -83,6 +109,8 @@
   .snake-game {
     width: 250px;
     height: 250px;
+    background-size: 12px 12px;
+    background-image: radial-gradient(circle, #333 1px, transparent 1px);
   }
 
   .snake-segment,
@@ -91,8 +119,17 @@
     height: 12px;
   }
 
-  .start-screen button {
+  .start-screen button,
+  .game-over-screen button {
     font-size: 14px;
     padding: 6px 12px;
+  }
+
+  .game-over-screen p {
+    font-size: 18px;
+  }
+
+  .counter {
+    font-size: 14px;
   }
 }

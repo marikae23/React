@@ -7,10 +7,12 @@ const SnakeGame = () => {
   const [direction, setDirection] = useState('RIGHT');
   const [isGameOver, setIsGameOver] = useState(false);
   const [isGameStarted, setIsGameStarted] = useState(false);
+  const [foodCount, setFoodCount] = useState(0);
+  const [highScore, setHighScore] = useState(0);
   const boardSize = 20;
 
   const gameBoardRef = useRef(null);
-  const directionRef = useRef(direction); 
+  const directionRef = useRef(direction);
 
   useEffect(() => {
     directionRef.current = direction;
@@ -73,8 +75,8 @@ const SnakeGame = () => {
 
     if (checkCollision(head)) {
       setIsGameOver(true);
-      if (window.confirm('Game over! Do you want to restart?')) {
-        startGame();
+      if (foodCount > highScore) {
+        setHighScore(foodCount);
       }
       return;
     }
@@ -82,6 +84,7 @@ const SnakeGame = () => {
     newSnake.push(head);
     if (head[0] === food[0] && head[1] === food[1]) {
       setFood(generateFoodPosition());
+      setFoodCount(foodCount + 1);
     } else {
       newSnake.shift();
     }
@@ -119,20 +122,33 @@ const SnakeGame = () => {
     setSnake([[5, 5]]);
     setFood(generateFoodPosition());
     setDirection('RIGHT');
+    setFoodCount(0);
+  };
+
+  const restartGame = () => {
+    startGame();
   };
 
   return (
     <div className="snake-game" ref={gameBoardRef}>
       {!isGameStarted ? (
         <div className="start-screen">
-          <button onClick={startGame}>Start Game</button>
+          <button onClick={startGame}>START</button>
         </div>
       ) : (
         <>
+          <div className="counter">Food Eaten: {foodCount}</div>
+          {isGameOver && (
+            <div className="game-over-screen">
+              <p>Game Over!</p>
+              <p>High Score: {highScore}</p>
+              <button onClick={restartGame}>RESTART</button>
+            </div>
+          )}
           {snake.map((segment, index) => (
             <div
               key={index}
-              className="snake-segment"
+              className={`snake-segment ${index === snake.length - 1 ? 'head' : ''}`}
               style={{
                 left: `${segment[0] * 20}px`,
                 top: `${segment[1] * 20}px`,
