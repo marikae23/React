@@ -131,13 +131,15 @@ const SnakeGame = () => {
 
   return (
     <div className="snake-game" ref={gameBoardRef}>
+      <div className="score-board">
+        <div className="counter">Food Eaten: {foodCount}</div>
+      </div>
       {!isGameStarted ? (
         <div className="start-screen">
           <button onClick={startGame}>START</button>
         </div>
       ) : (
         <>
-          <div className="counter">Food Eaten: {foodCount}</div>
           {isGameOver && (
             <div className="game-over-screen">
               <p>Game Over!</p>
