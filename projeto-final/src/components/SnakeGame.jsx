@@ -1,3 +1,18 @@
+// Pretendo adicionar dificuldade, fácil, médio e díficil.
+// Pretendo adicionar uma opção que o usuário possa escolher a cor da cobra.
+// Pretendo adicionar "comidas" de cores diferentes que podem ser buffs ou debuffs. (Ex: Comer a comida azul faz com que você perca 15% dos pontos)
+// Pretendo melhorar o CSS do jogo, deixando algo mais bonito e ainda retrô.
+
+// Buff e Debuffs
+// Comida amarela: normal
+// Comida roxo: ganhe o dobro de pontos por 20s
+// Comida verde: perca 10% do tamanho sem perder pontuação
+
+// Comida vermelha: ganha 20% mais velocidade e 20% mais tamanho
+// Comida azul: comer o azul te faz perder 15% da pontuação
+// Comida branca: inverte o teclado.
+
+
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/SnakeGame.css';
 
